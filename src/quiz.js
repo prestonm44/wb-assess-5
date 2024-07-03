@@ -16,21 +16,29 @@ await client.connect();
 
 // Problem 01
 export const problem01 = await client.query(`
-  SELECT * FROM cupcakes
-  WHERE name = 'vanilla';
+  SELECT email FROM cupcakes
+  ORDER BY email;
 `); 
 console.log('-- Problem 01 --');
 console.log(problem01?.rows);
 
 // Problem 02
-export const problem02 = null;
+export const problem02 = await client.query(`
+  SELECT id 
+  FROM orders
+    WHERE fname LIKE '%Elizabeth%' AND lname LIKE '%Crocker%'
+    FROM customers
+`);
 // console.log('-- Problem 02 --');
 // console.log(problem02?.rows);
 
 // Problem 03
-export const problem03 = null;
-// console.log('-- Problem 03 --');
-// console.log(problem03?.rows);
+export const problem03 = await client.query(`
+SELECT COUNT (*)
+FROM orders
+WHERE processed = FALSE
+`);
+
 
 // Problem 04
 export const problem04 = null;
