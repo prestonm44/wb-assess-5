@@ -72,7 +72,7 @@ Animal.init(
   }
 )
 
-Animal.hasMany(Human, { foreignKey: 'humanId' });
-Human.belongsTo(Animal, { foreignKey: 'humanId' });
+Human.hasMany(Animal, { foreignKey: 'humanId' });
+Animal.belongsTo(Human, { foreignKey: 'humanId' });
 
 export default db;
